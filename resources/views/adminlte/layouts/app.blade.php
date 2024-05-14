@@ -8,13 +8,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ $title ?? "Reza Nurfachmi @ Laradminlte" }} | Dashboard</title>
-
+  <link rel="website icon" type="png" href="https://pulsaseluler.com/blog/wp-content/uploads/schema-logo-blog.jpg">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
+  @yield('addCss')
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -196,33 +197,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Starter Pages
+                Menu
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
+                <a href="{{route('daftarProvider')}}" class="nav-link active">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>Daftar Provider</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                <a href="{{route('daftarPulsa')}}" class="nav-link">
+                  <i class="nav-icon fas fa-store"></i>
+                  <p>Daftar Pulsa</p>
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
           </li>
         </ul>
       </nav>
@@ -234,12 +226,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   @yield('content')
 
 <!-- REQUIRED SCRIPTS -->
-
+@include ('sweetalert::alert')
 <!-- jQuery -->
 <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
+@yield('addJavascript')
 </body>
 </html>
